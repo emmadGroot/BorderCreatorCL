@@ -69,7 +69,7 @@ namespace BorderCreatorCL
                 canvas.DrawLine(bottomright, topright, brush);
                 canvas.DrawLine(bottomright, bottomleft, brush);
 
-                bitmap.Encode(SKEncodedImageFormat.Png, 100).SaveTo(new FileStream("edited_" + path, FileMode.Create));
+                bitmap.Encode(SKEncodedImageFormat.Png, 100).SaveTo(new FileStream(AddPrefix(path), FileMode.Create));
 
                 return true;
             }
@@ -78,6 +78,15 @@ namespace BorderCreatorCL
                 return false;
             }
 
+        }
+
+        static string AddPrefix(string filePath)
+        {
+            string directory = Path.GetDirectoryName(filePath);
+            string fileName = Path.GetFileName(filePath);
+            string editedFileName = "edited_" + fileName;
+            string editedFilePath = Path.Combine(directory, editedFileName);
+            return editedFilePath;
         }
     }
 }
