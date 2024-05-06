@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BorderCreatorCL": {
+      "commandName": "Project",
+      "commandLineArgs": "Image3.jpg 5 FF0000"
+    }
+  }
+}
